@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Solr Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+</head>
+
+<body>
+  <!-- heading with animated cat -->
+  <div class="heading">
+    <h1>Cat Query</h1>
+    <img id="cat"
+      src="https://media4.giphy.com/media/1ylcHJacqW2jjrYTxN/200w.webp?cid=ecf05e4712fmc0pad2a1c6b95y39uddhjm2shzegi6x014en&ep=v1_stickers_search&rid=200w.webp&ct=s"
+      alt="cat_gif">
+  </div>
+
+  <!-- searchbox -->
+  <form id="search-form">
+    <div class="input-wrapper">
+      <input type="text" id="query-input" placeholder="Enter your search query" autocomplete="off">
+      <!-- <div id="autocomplete-list"></div> -->
+      <button type="submit" class="search-button">&nbsp;</button>
+      <!-- <img id = "audio" src="https://media0.giphy.com/media/E4Pcm3MawDRSs3zTZ7/200w.webp?cid=ecf05e471u9q8j3gs90ouh8ndu2392l54dpibh65kbai9jpz&ep=v1_stickers_search&rid=200w.webp&ct=s" alt="audio_gif">  -->
+    </div>
+
+    <!-- Multi-language search -->
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+    </select>
+  </form>
+
+  <!-- filtering -->
+  <div class="filter">
+    <h2>Filter by:</h2>
+    <input type="number" min="1990" max="2023" id="year-input" placeholder="Enter year">
+    <input type="text" id="creator-input" placeholder="Enter creator">
+
+    <!-- dropdown sorting -->
+    <div id="search-results">
+      <div class="dropdown">
+        <button class="dropbtn">Sort by</button>
+        <div class="dropdown-content">
+          <a href="#" id="sort-name">Title Asc</a>
+          <a href="#" id="sort-name-desc">Title Desc</a>
+          <a href="#" id="sort-year">Year Asc</a>
+          <a href="#" id="sort-year-desc">Year Desc</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div id="buttonsContainer" style="display: none;">
+    <button id="searchButton" class="active">Search Results</button>
+    <button id="newsButton">News</button>
+  </div>
+  <div id="results-container">
+    <ul id="results-list"></ul>
+  </div>
+
+  <div id="news-container">
+    <div id="top-news">
+      <h2>Top News Headlines</h2>
+      <ul id="news-headlines"></ul>
+    </div>
+  </div>
+
+  <div id="card-container"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/card.js') }}"></script>
+</body>
+
+</html>
